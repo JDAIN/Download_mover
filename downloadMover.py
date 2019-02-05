@@ -60,7 +60,7 @@ if __name__ == '__main__':
     #path for start/download_dir
     downloadpath_yyy = os.path.abspath(r'Y:\downloads')
     #path for target dir
-    targetpath_zzz = os.path.abspath(r'Z:\downloadsBackup')
+    targetpath_zzz = os.path.abspath(r'Z:\Backup\downloadsBackup')
     os.chdir(downloadpath_yyy) #changed cwd to download_dir
     rm_dup(downloadpath_yyy)  # removes duplicates in download
     print('DONE REMOVING DUPLICATES')
