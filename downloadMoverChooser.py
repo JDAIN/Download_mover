@@ -42,7 +42,8 @@ def rm_dup(path):
 
 def pack_zip(path):
     # print(os.getcwd())
-    zip_file_name = 'downloadsYYY_' + datetime.datetime.now().strftime('%d-%m-%Y_%H_%M') + '.zip'
+    folder_name = os.path.basename(path)
+    zip_file_name = folder_name + "_" + datetime.datetime.now().strftime('%d-%m-%Y_%H_%M') + '.zip'
     print('Zipfilename: ' + zip_file_name + "\n")
     os.chdir(downloadpath_yyy)
     # print(os.getcwd())
@@ -84,7 +85,7 @@ if __name__ == '__main__':
     targetpath_zzz = os.path.abspath(file_dir2)
 
     # lists to be moved files
-    print('files to be moved to zzz: ' + ', '.join(os.listdir(downloadpath_yyy)))  # lists to be moved files
+    print('files to be moved to Backupfolder: ' + ', '.join(os.listdir(downloadpath_yyy)))  # lists to be moved files
 
     for file in os.listdir(downloadpath_yyy):
         # moves zip and remaining files to backup
