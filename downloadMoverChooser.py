@@ -70,7 +70,7 @@ if __name__ == '__main__':
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
     # show an "Open" dialog box and return the path to the selected file
     file_dir = askdirectory(title='Choose Downloadfolder')
-
+    file_dir2 = askdirectory(title='Choose Backupfolder')
     downloadpath_yyy = os.path.abspath(file_dir)
     os.chdir(downloadpath_yyy)
 
@@ -81,7 +81,6 @@ if __name__ == '__main__':
 
     print('\nDONE PACKING TO ZIP')
 
-    file_dir2 = askdirectory(title='Choose Backupfolder')
     targetpath_zzz = os.path.abspath(file_dir2)
 
     # lists to be moved files
