@@ -40,15 +40,15 @@ def rm_dup(path):
 
 def pack_zip(path):
     # print(os.getcwd())
-    zipFileName = 'downloadsYYY_' + datetime.datetime.now().strftime('%d-%m-%Y_%H_%M') + '.zip'
-    print('Zipfilename: ' + zipFileName + "\n")
+    zip_file_name = 'downloadsYYY_' + datetime.datetime.now().strftime('%d-%m-%Y_%H_%M') + '.zip'
+    print('Zipfilename: ' + zip_file_name + "\n")
     os.chdir(downloadpath_yyy)
     # print(os.getcwd())
     for files in os.listdir(downloadpath_yyy):
         # print(files)
         files = os.path.join(downloadpath_yyy, files)
         # print(files)
-        with zipfile.ZipFile(zipFileName, 'a', compression=zipfile.ZIP_DEFLATED) as down_zip:
+        with zipfile.ZipFile(zip_file_name, 'a', compression=zipfile.ZIP_DEFLATED) as down_zip:
             if 'downloadsYYY_' not in files:
                 print('\rPack to zip: ' + files, sep=' ', end='\t\t\t\t\t', flush=True)
 
@@ -57,11 +57,10 @@ def pack_zip(path):
                         down_zip.write(os.path.join(files, f))
                         os.remove(os.path.join(files, f))
 
-                    os.rmdir(files)
+                    os.rmdir(files)  # deletes empty folder after files have been removed
                 else:
                     down_zip.write(files)
                     os.remove(files)
-
 
 
 if __name__ == '__main__':
