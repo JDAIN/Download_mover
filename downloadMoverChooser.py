@@ -25,6 +25,10 @@ def rm_dup(path):
     md5_dict = defaultdict(list)
     for root, dirs, files in os.walk(path):  # the os.walk function allows checking subdirectories too...
         for filename in files:
+            # skips currently downloading files
+            if filename.endswith(".crdownload"):
+                continue
+
             filepath = os.path.join(root, filename)
             print('\rReading: ' + filename, sep=' ', end='\t\t\t\t\t\t\t', flush=True)
 
@@ -48,6 +52,9 @@ def pack_zip(path):
     os.chdir(downloadpath_yyy)
     # print(os.getcwd())
     for files in os.listdir(downloadpath_yyy):
+        # skips currently downloading files
+        if files.endswith(".crdownload"):
+            continue
         # print(files)
         files = os.path.join(downloadpath_yyy, files)
         # print(files)
