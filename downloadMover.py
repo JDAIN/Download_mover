@@ -86,7 +86,7 @@ if __name__ == '__main__':
     pack_zip(downloadpath_yyy)  # packs remaining files in zip
     # print(os.getcwd())
     print('\nDONE PACKING TO ZIP')
-
+    #TODO fix output
     print('files to be moved to zzz: ' + ', '.join(os.listdir(downloadpath_yyy)))  # lists to be moved files
     for file in os.listdir(downloadpath_yyy):
         # skips currently downloading files
