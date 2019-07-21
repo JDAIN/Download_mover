@@ -32,14 +32,17 @@ def rm_dup(path):
 
             file_md5 = md5(filepath)
             md5_dict[file_md5].append(filepath)
-
+    dup_file_counter = 0
     for key in md5_dict:
         file_list = md5_dict[key]
+
         while len(file_list) > 1:
             item = file_list.pop()
             os.remove(item)
+            dup_file_counter += 1
             print('\rRemoved: ' + item, sep=' ', end='\t\t\t\t\t\t\t', flush=True)
     print()
+    print(str(dup_file_counter) + " duplicate Files removed")
 
 
 def pack_zip(path):
@@ -86,5 +89,8 @@ if __name__ == '__main__':
 
     print('files to be moved to zzz: ' + ', '.join(os.listdir(downloadpath_yyy)))  # lists to be moved files
     for file in os.listdir(downloadpath_yyy):
+        # skips currently downloading files
+        if file.endswith(".crdownload"):
+            continue
         shutil.move(file, os.path.join(targetpath_zzz, file))  # moves zip and remaining files to backup
     print('DONE!')
